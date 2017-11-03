@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <p>Nombre del Alumno: <input type="text" id="nombre"></p>
+    <p>Nombre y Apellidos del Alumno: <input type="text" size="40" id="nombre"></p>
     <p>Nota en DWES: <input type="text" id="dwes"></p>
     <p>Nota en DWEC: <input type="text" id="dwec"></p>
     <p>Nota en DIW: <input type="text" id="diw"></p>
@@ -39,9 +39,11 @@
         }
 
         
-
+        //  Se compruba que se itroduzca nombre y apellidos obligatoriamente.
+        //  Parametro: cadena que se va ha comprobar.
         var comprobarNombre = (nombre) => {
-            let patron = /^[a-zA-Záéíóú]+$/;
+            //  Se debe introducir nombre y apellidos
+            let patron = /^[\wáéíóúÁEÍÓÚ]+[, ]{1}([" "]{1}[\wáéíóúÁÉÍÓÚ]+)?[" "]{1}[\wáéíóúÁÉÍÓÚ]+[" "]{1}[\wáéíóúÁÉÍÓÚ]+$/;
             return patron.test(nombre);
         }
 
