@@ -13,11 +13,43 @@
     <p>Nota en DWEC: <input type="text" id="dwec"></p>
     <p>Nota en DIW: <input type="text" id="diw"></p>
     <p id="contador"></p>
-    <input type="button" value="Añadir datos">
+    <input type="button" value="Añadir datos" onclick="prueba()">
     
     <script>
 
+        var notaDWES = dwes.value;
+        var notaDWEC = dwec.value;
+        var notaDIW = diw.value;
+
+
+        var iniciarMasComprobaciones = () => {
+            alert(comprobarNombre(nombre.value));
+        }
+
+        var comprobarCamposVacios = () => {
+
+            var array = Array.from(document.getElementsByTagName("input"));
+            var nuevoArray = array.slice(0, array.length - 1);  //  Eliminamos el elemento de botón.
+            
+            if (nuevoArray.some((elem) => elem.value.length == 0))
+                alert("¡ERROR! Hay campos de texto vacios.");
+            else
+                iniciarMasComprobaciones();
+            
+        }
+
         
+
+        var comprobarNombre = (nombre) => {
+            let patron = /^[a-zA-Záéíóú]+$/;
+            return patron.test(nombre);
+        }
+
+        
+
+        function prueba() {
+        comprobarCamposVacios();
+        }
     
     
     </script>
